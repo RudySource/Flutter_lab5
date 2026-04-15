@@ -1,17 +1,80 @@
-# photo_of_the_day
+# Лабораторная работа №5. Асинхронность в Dart и Flutter.
 
-A new Flutter project.
+Приложение на Flutter, которое загружает и отображает случайные изображения (собак или пейзажей) из интернета с использованием асинхронных запросов.
 
-## Getting Started
+## Основная информация
 
-This project is a starting point for a Flutter application.
+**ФИО**: Rudy Rudy Rudy
 
-A few resources to get you started if this is your first Flutter project:
+**Группа**: ИСП-233
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+**Дата**: 24.08.2077
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RudySource?tab=repositories)
+
+---
+
+## Стек
+
+- **Flutter:** 3.41.6
+- **Dart:** 3.11.4
+- **Платформа:** Web (Chrome)
+- **IDE:** VS Code
+- **Пакеты:** http
+
+## Скриншот приложения
+
+![Screenshot](img/step2.png)
+
+## Как запустить
+
+1. **Клонировать репозиторий**
+
+```bash
+git clone https://github.com/RudySource/Flutter_Lab5
+```
+
+2. Перейти в папку проекта
+   `cd photo_of_the_day`
+3. Установить зависимости
+
+```
+flutter pub get
+```
+
+4. Запустить в браузере
+
+```
+flutter run -d chrome
+```
+
+## Что изучили
+
+- Работа с асинхронностью (`Future`, `async`/`await`)
+- Выполнение HTTP-запросов через пакет `http`
+- Парсинг JSON (jsonDecode)
+- Управление состоянием через `setState()`
+- Отображение сетевых изображений в Flutter
+
+## Ответы на вопросы
+
+### 1. Что такое `Future<T>`? Чем отличается от обычного возвращаемого значения?
+
+`Future<T>` — это объект, который возвращает значение типа T в будущем. Обычное значение возвращается сразу, а Future — асинхронно после завершения операции.
+
+### 2. Что делает `await`? Блокирует ли он весь поток выполнения?
+
+`await` приостанавливает выполнение текущей функции до завершения Future. Он не блокирует весь поток, только текущую функцию.
+
+### 3. Зачем `setState()` вызывается дважды в `_fetchPhoto()`?
+
+Первый вызов включает загрузку и очищает старые данные. Второй обновляет интерфейс после получения результата.
+
+### 4. Почему кнопке передаётся `_fetchPhoto` без скобок, а не `_fetchPhoto()`?
+
+Передаётся ссылка на функцию. Если использовать скобки, функция выполнится сразу при построении интерфейса.
+
+### 5. Чем `Image.network()` отличается от `Image.asset()`?
+
+- `Image.network()` загружает изображение из интернета по URL.
+- `Image.asset()` загружает локальное изображение из проекта.
